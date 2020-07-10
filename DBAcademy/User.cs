@@ -5,12 +5,12 @@ namespace DBAcademy
     public class User
     {
         [Key]
-        [ForeignKey("authorization")]
+        [ForeignKey("Authorization")]
         public int Id { get; set; }
 
         public string Name { get; set; }
         public int Age { get; set; }
 
-        public Authorization authorization { get; set; }
+        public Authorization Authorization { get; set; }
     }
 }
