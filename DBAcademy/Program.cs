@@ -10,8 +10,8 @@ namespace DBAcademy
             using (UserContext db = new UserContext())
             {
                 // создаем два объекта User
-                User user1 = new User { Id = 2, Name = "Tom", Age = 33 };
-                User user2 = new User { Id = 3, Name = "Sam", Age = 26 };
+                User user1 = new User { Id = 0, Name = "Tom", Age = 33 };
+                User user2 = new User { Id = 1, Name = "Sam", Age = 26 };
 
                 // добавляем их в бд
                 db.Users.AddRange(new List<User> { user1, user2 });
@@ -33,13 +33,10 @@ namespace DBAcademy
                 var users = db.Users;
                 var authorizations = db.Authorizations;
                 Console.WriteLine("Список объектов:");
+                //ГДЕ ТО ПРОБЛЕМА, ЗАПУСКАЕТСЯ ПРАВИЛЬНО ТОЛЬКО ПЕРВЫЙ РАЗ!!!
                 foreach (User u in users)
                 {
-                    Console.WriteLine("{0}.{1} - {2}", u.Id, u.Name, u.Age);
-                }
-                foreach (Authorization a in authorizations)
-                {
-                    Console.WriteLine("{0}.{1} - {2}", a.Id, a.Login, a.Password);
+                    Console.WriteLine("{0}login - {1} password - {2} name - {3} age - {4}", u.Id, u.Authorization.Login, u.Authorization.Password, u.Name, u.Age);
                 }
             }
             Console.Read();
