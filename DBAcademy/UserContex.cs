@@ -8,8 +8,10 @@ namespace DBAcademy
             : base("DbConnection")
         {}
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Student> Students { get; set; }
         public DbSet<Authorization> Authorizations { get; set; }
-
+        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Group> Groups { get; set; }
+        public DbSet<Test> Tests { get; set; }
     }
 }

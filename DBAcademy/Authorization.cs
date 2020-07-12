@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DBAcademy
 {
@@ -7,7 +8,6 @@ namespace DBAcademy
         public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-
-        public User User { get; set; }
+        
     }
 }

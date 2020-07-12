@@ -1,16 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
 namespace DBAcademy
 {
-    public class User
+    public class Group
     {
-        [Key]
-        [ForeignKey("Authorization")]
         public int Id { get; set; }
-
         public string Name { get; set; }
-        public int Age { get; set; }
 
-        public Authorization Authorization { get; set; }
+        public int? TeacherId { get; set; }
+        [ForeignKey("TeacherId")]
+        public Teacher Teacher { get; set; }
     }
 }
