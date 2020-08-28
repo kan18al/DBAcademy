@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace DBAcademy
 {
@@ -9,6 +10,8 @@ namespace DBAcademy
         {
             using (UserContext db = new UserContext())
             {
+                XDocument xDoc = XDocument.Load("test.xml");
+                XDocument xDoc2 = XDocument.Load("test2.xml");
                 // создаем четыре объекта Authorization
                 Authorization authorization1 = new Authorization { Login = "tom13", Password = "qwerty" };
                 Authorization authorization2 = new Authorization { Login = "sam18", Password = "ytrewq" };
@@ -22,8 +25,8 @@ namespace DBAcademy
                 db.SaveChanges();
 
                 // создаем пару тестов
-                Test test1 = new Test { stub = "вопрос?" };
-                Test test2 = new Test { stub = "вопрос другой?" };
+                Test test1 = new Test { Xml = new XCData(xDoc.ToString()) };
+                Test test2 = new Test { Xml = new XCData(xDoc2.ToString()) };
 
                 // добавляем их в бд
                 db.Tests.AddRange(new List<Test> { test1, test2 });
